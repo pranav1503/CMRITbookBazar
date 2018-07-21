@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container jumbotron" style="margin:auto;width:30em;margin-top:5em;">
+    {% if not form.instance.pk %}
+        <h1 align="center">Sell A Book</h1>
+    {% else %}
+        <h1 align="center">Edit the book details</h1>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" class="btn btn-lg btn-block btn-primary"  name="" value="Advertise">
+    </form>
+  </div>
+{% endblock %}

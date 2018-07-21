@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container jumbotron" style="margin-top:5em;">
+    {% url 'mainApp:finishedOrders' as orders %}
+    {% if request.get_full_path == orders %}
+    <h1>Did you finish receiving the item?</h1>
+    <form method="post">
+      <h1>Are you sure you want to remove "{{ Item.book }}" from cart?</h1>
+      {% csrf_token %}
+      <button type="submit" class="btn btn-lg btn-warning" name="button">Confirm</button>
+      <a href="{% url 'mainApp:cart' %}">Cancel?</a>
+    </form>
+    {% else %}
+    <form method="post">
+      <h1>Are you sure you want to remove "{{ Item.book }}" from cart?</h1>
+      {% csrf_token %}
+      <button type="submit" class="btn btn-lg btn-danger" name="button"><i class="fas fa-trash"></i></button>
+      <a href="{% url 'mainApp:cart' %}">Cancel?</a>
+    </form>
+    {% endif %}
+
+  </div>
+{% endblock %}

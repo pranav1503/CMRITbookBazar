@@ -1,0 +1,98 @@
+body,html{
+  margin: 0;
+}
+/**************************** LOGIN AND REGISTERATION ********************************************************/
+body{
+  /* background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+  background-color: #ededed;
+  position: relative;
+  overflow: scroll;
+}
+
+  .mobile-reg{
+    display: none;
+  }
+  .container-reg{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10em;
+    width: 30vw;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 0.5em;
+  }
+
+
+  .reg-textbox, select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 0px 0;
+      display: inline-block;
+      border: none;
+      border-bottom: 1px solid #adadad;
+      box-sizing: border-box;
+      font-size: 20px;
+      color: #686868;
+  }
+
+  .reg-textbox:focus{
+    outline: none;
+    border-bottom: 2px solid #ff4ccc;
+  }
+
+  .reg-fln{
+      width: 48%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border: none;
+      box-sizing: border-box;
+      font-size: 20px;
+      color: #686868;
+      border-bottom: 1px solid #adadad;
+  }
+
+  .reg-fln:focus{
+    outline: none;
+    border-bottom: 2px solid #ff4ccc;
+  }
+
+  p{
+    margin-top: 0;
+    margin-left: 10px;
+  }
+
+  .signup-h1{
+    font-family: 'Exo 2', sans-serif;
+    font-size: 40px;
+  }
+
+  label{
+    display: none;
+  }
+
+  .sub-btn{
+    background-color: #EB4D4D ;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    width: 50%;
+    border-radius: 0.5em;
+    margin-top: 15px;
+    color: #fff;
+  }
+
+  .sub-btn:hover{
+    cursor: pointer;
+    background-color: #cc4545;
+  }
+
+  .reglogin-link:visited{
+    color: #0000FF;
+  }

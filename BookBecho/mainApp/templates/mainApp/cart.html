@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="margin-top:5em;">
+
+  {% if lists %}
+  <h1 align='center' class="display-4">Your Cart</h1>
+  <h3 align='center'>Total Cost: ₹{{ total }}</h3>
+  <a href="{% url 'mainApp:checkOut' %}" class="btn btn-warning btn-lg btn-block ">Check out</a>
+  <a href="{% url 'mainApp:emptyCart' %}" class="btn btn-danger btn-lg btn-block ">Empty Cart</a>
+  {% for i in lists %}
+
+    <div class="jumbotron" style="margin:auto;width:30em;float:left;margin-left:2em;margin-top:2em">
+
+      <img src="/media/{{ i.book.book_image }}" alt="" style="max-height:10em;max-width:10em;float:right;">
+      <div class="">
+        <h3>{{ i.book.book_name }}</h3>
+        <p>By: {{ i.book.book_author }}</p>
+        <h4>Price: ₹{{ i.book.cost }}</h4>
+
+        <a href="{% url 'mainApp:removeFromCart' pk=i.pk %}" class="btn btn-lg btn-danger"> <i class="fas fa-trash"></i></a>
+      </div>
+
+    </div>
+
+  {% endfor %}
+  {% else %}
+  <div class="jumbotron">
+    <h1 align='center' class="display-4">Your Cart is empty <i class="fas fa-shopping-cart"></i></h1>
+    <a href="{% url 'mainApp:home' %}" class="btn btn-lg btn-block btn-warning">Continue Shopping</a>
+  </div>
+
+  {% endif %}
+
+</div>
+{% endblock %}

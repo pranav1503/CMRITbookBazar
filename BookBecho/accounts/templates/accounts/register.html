@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="body-reg">
+  <div class="container-reg">
+    <p class="signup-h1">Sign Up</p>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user }}
+        {{ phone }}
+        <input type="submit" class="sub-btn" name="" value="Sign Up">
+        <p style="margin-top:10px;">Already have an account? <a class="reglogin-link" href="{% url 'accounts:login' %}">Login here</a></p>
+      </form>
+  </div>
+
+
+</div>
+{% endblock content %}

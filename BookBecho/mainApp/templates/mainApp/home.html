@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="margin-top:5em;">
+  {% if lists %}
+  {% for i in lists %}
+    <div class="jumbotron" style="margin:auto;width:30em;float:left;margin-left:2em;margin-top:2em">
+      <img src="/media/{{ i.book_image }}" alt="" style="max-height:10em;max-width:10em;float:right;">
+      <div class="">
+        <h3>{{ i.book_name }}</h3>
+        <p>By: {{ i.book_author }}</p>
+        <h4>Price: ₹{{ i.cost }}</h4>
+
+        {% if i.seller == user %}
+          <a href="{% url 'mainApp:sellBookEdit' pk=i.pk %}" class="btn btn-lg btn-warning"><i class="fas fa-edit"></i></a>
+          <a href="{% url 'mainApp:sellBookDelete' pk=i.pk %}" class="btn btn-lg btn-danger"><i class="fas fa-trash"></i></a>
+          {% else %}
+          <a href="{% url 'mainApp:addToCart' pk=i.pk %}" class="btn btn-lg btn-warning">Add to kart <i class="fas fa-shopping-cart"></i></a>
+        {% endif %}
+      </div>
+    </div>
+
+  {% endfor %}
+  {% else %}
+  {% url 'mainApp:home' as home %}
+  <div class="jumbotron">
+    {% if request.get_full_path == home%}
+    <h1 class="display-4">No Books are sold yet</h1>
+    <a class="btn btn-lg btn-danger" href="{% url 'mainApp:sellBook' %}">Sell Book?</a>
+    {% else %}
+    <h1 class="display-4">No results found....</h1>
+    <p class="lead">Try some other keywords</p>
+    <hr class="my-4">
+    <a href="{% url 'mainApp:home' %}" class="btn btn-lg btn-warning">Home</a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

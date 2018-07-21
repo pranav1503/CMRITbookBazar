@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="body-reg">
+  <div class="container-reg">
+    <form method="post">
+    {% csrf_token %}
+    <p align='center' class="signup-h1">Login</p>
+    {% if message %}
+        <ul>
+          <li style="color:red;">Entered username or password incorrect</li>
+        </ul>
+    {% endif %}
+      <input type="text" class="reg-textbox" name="username"  placeholder="Username">
+      <input type="password" class="reg-textbox" id="pass-content" name="password" placeholder="Password">
+    <input class="sub-btn" type="submit" name=""  value="Login">
+  </form>
+  <input type="checkbox" class="showPassCont" onclick="showPassword()" value="">Show Password
+  <p style="margin-top:10px;">Don't have an account? <a class="reglogin-link" href="{% url 'accounts:signup' %}">Create an account here.</a> </p>
+  </div>
+</div>
+<script src="{% static "js/app.js" %}">
+
+</script>
+{% endblock %}

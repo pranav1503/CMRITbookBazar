@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container jumbotron" style="margin-top:5em;">
+
+    <h1>Did you finish receiving the item?</h1>
+    <br>
+    <hr class="my-4">
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-lg btn-warning" name="button"><b>Confirm</b></button>
+      <a href="{% url 'mainApp:orders' %}">Cancel?</a>
+    </form>
+
+
+  </div>
+{% endblock %}

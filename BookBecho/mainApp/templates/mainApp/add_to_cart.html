@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container jumbotron" style="margin: auto;width: 50em;margin-top:8em;">
+    <h1>Do you want to add this item to Cart?</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-lg btn-warning" name="button">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+      <a href="{% url 'mainApp:home' %}">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

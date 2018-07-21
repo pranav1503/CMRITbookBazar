@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="" style="margin: auto;width: 90em;margin-top:5em;" >
+
+  {% if order_lists %}
+  <h1 align='center' class="display-4">Your Orders and Seller info</h1>
+
+  {% for i in order_lists %}
+
+    <div class="jumbotron" style="margin:auto;width:40em;float:left;margin-left:2em;margin-top:2em">
+
+      <img src="/media/{{ i.book.book_image }}" alt="" style="max-height:10em;max-width:10em;float:right;">
+      <div class="">
+        <h2>{{ i.book.book_name }}</h2>
+        <p>By: {{ i.book.book_author }}</p>
+        <h4>Seller Name: {{ i.book.seller.first_name }}</h4>
+        <h4>Seller Email: {{ i.book.seller.email }}</h4>
+        <h4>Seller Contact.No: {{ i.book.seller.phone.phone_number }}</h4>
+        <h4>Price: ₹{{ i.book.cost }}</h4>
+
+        <a href="{% url 'mainApp:finishedOrders' pk=i.pk %}" class="btn btn-lg btn-danger">Finished Receiving</i></a>
+      </div>
+
+    </div>
+
+  {% endfor %}
+  {% else %}
+  <div class="jumbotron">
+    <h1 align='center' class="display-4">No Orders made!<i class="fas fa-shopping-cart"></i></h1>
+    <a href="{% url 'mainApp:home' %}" class="btn btn-lg btn-block btn-warning">Continue Shopping</a>
+  </div>
+
+  {% endif %}
+
+</div>
+{% endblock %}

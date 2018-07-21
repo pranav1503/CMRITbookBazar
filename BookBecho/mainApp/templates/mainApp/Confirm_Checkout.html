@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container jumbotron" style="margin-top:5em;">
+    <h1 class="display-4">Are you sure to check out your orders?</h1>
+    <hr class="my-4">
+    <p class="lead">Check Order info & Contacts for your order details and to contact your seller. Cancellation of orders to be placed to the seller directly.</p>
+    <a href="{% url 'mainApp:confirmCheckOut' %}" class="btn btn-success btn-lg">Confirm</a>
+    <a href="{% url 'mainApp:cart' %}" >Cancel</a>
+  </div>
+{% endblock %}
